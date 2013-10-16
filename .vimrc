@@ -32,3 +32,6 @@ autocmd FileType lisp set tabstop=2 | set shiftwidth=2
 
 " Turn on syntax highlighting for clojure
 autocmd BufNewFile,BufRead *.clj setf clojure | set tabstop=2 | set shiftwidth=2
+
+" Turn off Markdown code folding
+let g:vim_markdown_folding_disabled=1
