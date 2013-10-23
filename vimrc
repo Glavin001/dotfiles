@@ -21,8 +21,10 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%80v.\+/
 
 " NERDTree
-autocmd VimEnter * NERDTree
-let NERDTreeIgnore = ['\.pyc$']
+"if exists("loaded_nerd_tree")
+    autocmd VimEnter * NERDTree
+    let NERDTreeIgnore = ['\.pyc$']
+"endif
 
 " highlight all occurances of current word
 autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
