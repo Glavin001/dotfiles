@@ -26,23 +26,23 @@ echo
 # create dotfiles_old in homedir
 echo "Creating $backupDir for backup of any existing dotfiles in ~"
 mkdir -p "$backupDir"
-echo "done"
+echo "Done."
 echo
 
 # change to the dotfiles directory
 echo "Changing to the $dir directory"
 cd $dir
-echo "...done"
+echo "Done."
 echo 
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    	echo "Moving any existing dotfiles from $HOME/.$file to $backupDir/.$file"
-    	mv "$HOME/.$file" "$backupDir"
-	#echo "Removing existing dotfile"
-	#rm "$HOME/.$file"
-    	echo "Creating symlink to $file in home directory."
-    	ln -s "$dir/$file" "$HOME/.$file"
+    echo "Moving any existing dotfiles from $HOME/.$file to $backupDir/.$file"
+    mv "$HOME/.$file" "$backupDir"
+    echo "Removing existing dotfile"
+    rm "$HOME/.$file"
+    echo "Creating symlink to $file in home directory."
+    ln -s "$dir/$file" "$HOME/.$file"
 	echo
 done
 echo 
