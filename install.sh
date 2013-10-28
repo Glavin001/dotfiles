@@ -7,8 +7,8 @@
 ########## Variables
 
 dir="$(pwd)"                    # dotfiles directory
-backupDir="$HOME/.dotfiles_backup"            # old dotfiles backup directory
-files="bashrc vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+backupDir="$HOME/.dotfiles_backup/$(date)"            # old dotfiles backup directory
+files="bashrc vimrc vim"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -24,7 +24,7 @@ echo
 # vim-pathogen install: http://stackoverflow.com/a/14545852
 
 # create dotfiles_old in homedir
-echo "Creating $backupDir for backup of any existing dotfiles in ~"
+echo "Creating '$backupDir' for backup of any existing dotfiles in ~/"
 mkdir -p "$backupDir"
 echo "Done."
 echo
@@ -39,8 +39,11 @@ echo
 for file in $files; do
     echo "Moving any existing dotfiles from $HOME/.$file to $backupDir/.$file"
     mv "$HOME/.$file" "$backupDir"
-    echo "Removing existing dotfile"
-    rm "$HOME/.$file"
+    if [ -e "$HOME/.$file" ]
+    then
+        echo "Removing existing dotfile"
+        rm "$HOME/.$file"
+    fi
     echo "Creating symlink to $file in home directory."
     ln -s "$dir/$file" "$HOME/.$file"
 	echo
