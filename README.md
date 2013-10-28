@@ -12,7 +12,7 @@ git clone git@github.com:Glavin001/dotfiles.git ; cd dotfiles ; ./install.sh
 ```
 #### 2) Clone via HTTP:
 ```bash
-git clone https://github.com/Glavin001/dotfiles.git ; dotfiles ; ./install.sh
+git clone https://github.com/Glavin001/dotfiles.git ; cd dotfiles ; ./install.sh
 ```
 
 
