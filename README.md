@@ -26,5 +26,5 @@ Backup of original files are located in `~/.dotfiles_backup/`, each in a directo
 
 ## More Information
 See http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
-### Dawson Reid's (@dreid93) original dotfiles
+### Dawson Reid's ([@dreid93](https://github.com/dreid93)) original dotfiles
 https://github.com/dreid93/dotfiles
