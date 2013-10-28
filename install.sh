@@ -64,7 +64,7 @@ then
     
     echo "Applying Mac fix to your ~/.bash_profile"
     echo "# Execute your ~/.bashrc file automatically on login." >> "$HOME/.bash_profile"
-    echo 'source "~/.bashrc"' >> "$HOME/.bash_profile"
+    echo 'source ~/.bashrc' >> "$HOME/.bash_profile"
 
     echo "Done."
 fi
