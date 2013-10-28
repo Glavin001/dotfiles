@@ -38,7 +38,7 @@ echo
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
     echo "Moving any existing dotfiles from $HOME/.$file to $backupDir/.$file"
-    mv "$HOME/.$file" "$backupDir"
+    mv "$HOME/.$file" "$backupDir/$file"
     if [ -e "$HOME/.$file" ]
     then
         echo "Removing existing dotfile"
@@ -49,3 +49,30 @@ for file in $files; do
 	echo
 done
 echo 
+
+echo "Important: On Mac the ~/.bashrc file is not executed automatically when logging in to bash shell through the Terminal app."
+echo "This can be easily resolved by appending the following line to your '~/.bash_profile':"
+echo "  source ~/.bashrc"
+echo
+read -p "Would you like to set that up automatically now? [Y/n]: " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    # Yes, apply fix now.
+    echo "Backing up your .bash_profile"
+    cp "$HOME/.bash_profile" "$backupDir/.bash_profile"
+    
+    echo "Applying Mac fix to your ~/.bash_profile"
+    echo "# Execute your ~/.bashrc file automatically on login." >> "$HOME/.bash_profile"
+    echo 'source "~/.bashrc"' >> "$HOME/.bash_profile"
+
+    echo "Done."
+fi
+
+echo
+echo "For further information or to post an issue please go to the GitHub repository page:"
+echo "  https://github.com/Glavin001/dotfiles"
+echo "Thank you and enjoy!"
+echo
+
+
